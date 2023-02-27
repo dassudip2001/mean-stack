@@ -1,0 +1,10 @@
+version: '3.4'
+services:
+   node-app:
+   build:
+    context: .
+    args:
+      - NODE_ENV=production
+    environment:
+      - NOdE_ENV=PRODUCTION
+    command: node index.js  
