@@ -1,0 +1,127 @@
+<!-- <app-navber></app-navber> -->
+<!-- <div class="container mt-3">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        <h3>Login</h3>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content> -->
+<!-- card body -->
+<!-- <div class="example-container">
+        <form [formGroup]="authForm">
+          <div class="mb-3">
+            <label for="username" class="form-label" aria-required="true"
+              >Enter The UserName
+            </label>
+            <br />
+            <input
+              type="text"
+              class="form-control-sm"
+              id="username"
+              formControlName="username"
+              aria-describedby="emailHelp"
+              placeholder="Enter The UserName"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Enter password</label>
+            <br />
+            <input
+              formControlName="password"
+              type="password"
+              class="form-control-sm"
+              id="password"
+              placeholder="Enter the  Password"
+            />
+          </div>
+
+          <button
+            type="button"
+            class="btn btn-primary mx-5"
+            (click)="createUser()"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div> -->
+
+<!-- <div class="container mt-5">
+  <div class="card">
+    <div class="card-title">
+      <h2 class="text-center mt-2">Login</h2>
+      <hr />
+    </div>
+    <div class="card-body">
+      <div class="container" id="item">
+        <form>
+          <div class="mb-3">
+            <label for="username" class="form-label" aria-required="true"
+              >Enter The UserName
+            </label>
+            <br />
+            <input
+              type="text"
+              class="form-control-sm"
+              id="username"
+              aria-describedby="emailHelp"
+              placeholder="Enter The UserName"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Enter password</label>
+            <br />
+            <input
+              type="password"
+              class="form-control-sm"
+              id="password"
+              placeholder="Enter the  Password"
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary mx-5">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="card center border-0">
+  <div class="card-head text-center display-6">Login</div>
+  <div class="card-body ps-5">
+    <form [formGroup]="authForm">
+      <div class="mb-3">
+        <label for="username" class="form-label" aria-required="true"
+          >Enter The UserName
+        </label>
+        <br />
+        <input
+          type="text"
+          class="form-control-sm"
+          id="username"
+          formControlName="username"
+          aria-describedby="emailHelp"
+          placeholder="Enter The UserName"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Enter password</label>
+        <br />
+        <input
+          formControlName="password"
+          type="password"
+          class="form-control-sm"
+          id="password"
+          placeholder="Enter the  Password"
+        />
+      </div>
+      <span class="text-dengar">{{errorMessage}}</span>
+      <button type="button" class="btn btn-primary mx-5" (click)="createUser()">
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

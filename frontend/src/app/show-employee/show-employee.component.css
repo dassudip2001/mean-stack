@@ -1,0 +1,11 @@
+.example-card {
+  /* max-width: 400px; */
+}
+.example-header-image {
+  background-image: url("https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(97).jpg");
+  background-size: cover;
+}
+
+.main {
+  margin: auto;
+}
