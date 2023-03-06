@@ -3,3 +3,7 @@
   ```
        - cd frontent
   ```
+  ```
+      npm i
+  ```
+  
