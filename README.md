@@ -1,7 +1,7 @@
 # express-angular
   # frontend
   ```
-       - cd frontent
+       cd frontent
   ```
   ```
       npm i
