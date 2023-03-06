@@ -1,0 +1,138 @@
+<app-navber></app-navber>
+<!-- <div class="container-fluid" style="border: 1px solid"> -->
+<ng-container *ngIf="!isEdit">
+  <mat-card
+  class="example-card"
+  *ngFor="
+    let emp of empArray | paginate : { itemsPerPage: 5, currentPage: p };
+    let i = index
+  "
+>
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{ emp.name }}</mat-card-title>
+    <mat-card-subtitle>{{ emp.position }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{ emp.about }}
+    </p>
+    <p>{{ emp.joining_data | date : "yyyy-MM-dd " }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <a (click)="getEmployee(emp._id)"
+      ><button mat-button>Edit</button></a
+    >
+    
+    <a (click)="deleteEmployee(emp._id)"><button mat-button>Delete</button></a>
+  </mat-card-actions>
+  <hr />
+</mat-card>
+</ng-container>
+<div class="container mt-3" *ngIf="isEdit">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-title">
+          <h3 class="text-center mt-2"><b>Create Employee</b></h3>
+          <hr />
+        </div>
+        <div class="card-body">
+          <form
+            [formGroup]="employeeForm"
+            (ngSubmit)="onSubmit()"
+            class="form-horizontal needs-validation"
+            novalidate
+          >
+            <fieldset>
+              <div class="mb-3">
+                <label for="name" class="form-label" aria-required="true"
+                  >Name
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  formControlName="name"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter The Name"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  formControlName="email"
+                  placeholder="Enter the  Email"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="position" class="form-label">Position</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="position"
+                  formControlName="position"
+                  placeholder="Enter the Position"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="about" class="form-label">About</label>
+                <textarea
+                  class="form-control"
+                  id="about"
+                  formControlName="about"
+                  placeholder="About section"
+                  rows="2"
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="position" class="form-label">Joining Date</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="date"
+                  formControlName="joining_data"
+                />
+              </div>
+              <!-- <span
+            class="alert text-success px-0"
+            *ngIf="alert.success.length > 0"
+            >{{ alert.success }}</span
+          >
+          <span
+            class="alert text-danger px-0"
+            *ngIf="alert.error.length > 0"
+            >{{ alert.error }}</span
+          >
+          <button
+            type="submit"
+            class="btn btn-sm bg-primary float-end"
+            *ngIf="!isSubmit"
+            [disabled]="!employeeForm.valid"
+            style="width: 75px"
+          >
+            Submit
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm bg-primary float-end"
+            *ngIf="isSubmit"
+            style="width: 75px"
+          >
+            <i class="fas fa-spinner fa-pulse"></i>
+          </button> -->
+              <button type="submit">submit</button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="blockquote-footer" *ngIf="!isEdit">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
