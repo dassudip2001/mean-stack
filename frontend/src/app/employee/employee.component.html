@@ -62,12 +62,17 @@
 
               <div class="mb-3">
                 <label for="position" class="form-label">Joining Date</label>
-                <input
-                  type="date"
-                  class="form-control"
-                  id="date"
-                  formControlName="joining_data"
-                />
+                <br />
+                <mat-form-field appearance="fill">
+                  <mat-label>Choose a date</mat-label>
+                  <input matInput [matDatepicker]="picker" />
+                  <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+                  <mat-datepicker-toggle
+                    matIconSuffix
+                    [for]="picker"
+                  ></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
               </div>
               <!-- <span
                 class="alert text-success px-0"
@@ -168,3 +173,4 @@
     </div>
   </div>
 </div>
+<app-footer></app-footer>
