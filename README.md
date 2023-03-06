@@ -1,5 +1,5 @@
 # express-angular
-  # frontend
+  # Frontend
   ```
        cd frontent
   ```
@@ -27,6 +27,6 @@
    npm i
   ```
   ```
-     npm start
+   npm start
   ```   
   
