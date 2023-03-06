@@ -1,11 +1,15 @@
 version: "3"
 services:
-  mongo-node:
+  mongonode:
     image: mongo
     restart: always
     volumes:
-      - db :/data/db
+      - mongo:/data/db
     ports:
-      - 27018:27017
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example      
+
 volumes:
-  - db
+  mongo: 

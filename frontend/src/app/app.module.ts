@@ -1,7 +1,7 @@
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmployeeComponent } from './employee/employee.component';
@@ -21,6 +21,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ShowEmployeeComponent } from './show-employee/show-employee.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {MatInputModule} from '@angular/material/input';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +45,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     MatFormFieldModule,
     ReactiveFormsModule,
     FormsModule,
+    MatInputModule,
+    MatDatepickerModule,
     NgxPaginationModule,
     Ng2SearchPipeModule,
     ServiceWorkerModule.register('ngsw-worker.js', {

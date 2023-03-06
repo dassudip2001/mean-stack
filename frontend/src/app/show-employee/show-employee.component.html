@@ -2,32 +2,32 @@
 <!-- <div class="container-fluid" style="border: 1px solid"> -->
 <ng-container *ngIf="!isEdit">
   <mat-card
-  class="example-card"
-  *ngFor="
-    let emp of empArray | paginate : { itemsPerPage: 5, currentPage: p };
-    let i = index
-  "
->
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>{{ emp.name }}</mat-card-title>
-    <mat-card-subtitle>{{ emp.position }}</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <p>
-      {{ emp.about }}
-    </p>
-    <p>{{ emp.joining_data | date : "yyyy-MM-dd " }}</p>
-  </mat-card-content>
-  <mat-card-actions>
-    <a (click)="getEmployee(emp._id)"
-      ><button mat-button>Edit</button></a
-    >
-    
-    <a (click)="deleteEmployee(emp._id)"><button mat-button>Delete</button></a>
-  </mat-card-actions>
-  <hr />
-</mat-card>
+    class="example-card"
+    *ngFor="
+      let emp of empArray | paginate : { itemsPerPage: 5, currentPage: p };
+      let i = index
+    "
+  >
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ emp.name }}</mat-card-title>
+      <mat-card-subtitle>{{ emp.position }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        {{ emp.about }}
+      </p>
+      <p>{{ emp.joining_data | date : "yyyy-MM-dd " }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <a (click)="getEmployee(emp._id)"><button mat-button>Edit</button></a>
+
+      <a (click)="deleteEmployee(emp._id)"
+        ><button mat-button>Delete</button></a
+      >
+    </mat-card-actions>
+    <hr />
+  </mat-card>
 </ng-container>
 <div class="container mt-3" *ngIf="isEdit">
   <div class="row">
@@ -136,3 +136,5 @@
 <div class="blockquote-footer" *ngIf="!isEdit">
   <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
+
+<app-footer></app-footer>
