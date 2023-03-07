@@ -81,7 +81,7 @@ export class ShowEmployeeComponent {
     this.emp_id=id;
     this._employeeService.find(id).subscribe(
       (res) => {
-        let date=moment(new Date(res.joining_data)).format('DD/MM/YYYY');
+        let date=moment(new Date(res.joining_data)).format('YYYY-MM-DD');
         this.isEdit=true;
         this.employeeForm = new FormGroup({
           name: new FormControl(res.name),
