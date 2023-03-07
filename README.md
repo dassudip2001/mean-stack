@@ -2,9 +2,7 @@
   ```
     git clone 
  ```
- ```
-   git pull origin v2.0.2-rc
-  ```  
+
   # Frontend
   ```
        cd frontent
