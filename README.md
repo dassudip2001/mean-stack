@@ -40,9 +40,17 @@
     
     
  # Run Docker env 
+ ```
    - cd backend 
+ ```
+ ```
    - docker-compose up
+ ```
+ ```
    - cd frontend
+ ```
+ ```
    - docker-compose up
+ ```  
   
   
