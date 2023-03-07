@@ -5,6 +5,8 @@ This repository is created for angular front end and express ja backend
   ```
     git clone 
  ```
+ ```
+   git pull origin v3.0.1-rc
 
   # Frontend
   ```
