@@ -63,44 +63,14 @@
               <div class="mb-3">
                 <label for="position" class="form-label">Joining Date</label>
                 <br />
-                <mat-form-field appearance="fill">
-                  <mat-label>Choose a date</mat-label>
-                  <input matInput [matDatepicker]="picker" />
-                  <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
-                  <mat-datepicker-toggle
-                    matIconSuffix
-                    [for]="picker"
-                  ></mat-datepicker-toggle>
-                  <mat-datepicker #picker></mat-datepicker>
-                </mat-form-field>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="date"
+                  formControlName="joining_data"
+                />
               </div>
-              <!-- <span
-                class="alert text-success px-0"
-                *ngIf="alert.success.length > 0"
-                >{{ alert.success }}</span
-              >
-              <span
-                class="alert text-danger px-0"
-                *ngIf="alert.error.length > 0"
-                >{{ alert.error }}</span
-              >
-              <button
-                type="submit"
-                class="btn btn-sm bg-primary float-end"
-                *ngIf="!isSubmit"
-                [disabled]="!employeeForm.valid"
-                style="width: 75px"
-              >
-                Submit
-              </button>
-              <button
-                type="button"
-                class="btn btn-sm bg-primary float-end"
-                *ngIf="isSubmit"
-                style="width: 75px"
-              >
-                <i class="fas fa-spinner fa-pulse"></i>
-              </button> -->
+
               <button type="submit">submit</button>
             </fieldset>
           </form>
@@ -154,11 +124,6 @@
                       class="fas fa-trash pointer-cursor"
                       (click)="deleteEmployee(emp._id)"
                     ></i>
-                    <i
-                      class="fas fa-show pointer-cursor"
-                      (click)="getEmployeeById(emp._id)"
-                      >show</i
-                    >
                   </span>
                 </td>
               </tr>
