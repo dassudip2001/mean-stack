@@ -17,6 +17,14 @@ export class ShowEmployeeComponent {
     private router:Router,
     private _employeeService: EmployeeService
   ) {}
+
+
+  selected: any;
+  dateChange(event: any) {
+    console.log(event);
+    this.selected = moment(new Date(event.target.value)).format("YYYY-MM-DD");
+    console.log(moment(new Date(event)).format("YYYY-MM-DD"));
+  }
   isLoading = true;
   isSubmit = false;
   isUpdate = false;
