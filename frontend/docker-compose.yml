@@ -1,6 +1,16 @@
 version: '3.7'
+
 services:
-  front:
-    build: .
+  frontend:
+    image: frontend
+    build:
+      context: .
+      dockerfile: ./Dockerfile
     ports:
       - 4200:4200
+    volumes:
+      - ./:/app
+      -  /app/node_modules  
+    environment:
+      - PORT=4200 
+    command: ng serve 

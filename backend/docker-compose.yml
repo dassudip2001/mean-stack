@@ -1,4 +1,4 @@
-version: '3.4'
+version: '3.7'
 
 services:
   dockerexpress:
@@ -6,9 +6,24 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    environment:
-      NODE_ENV: development
     ports:
       - 3000:3000
-      - 9229:9229
-    command: ["node", "--inspect=0.0.0.0:9229", "index.js"]
+    volumes:
+      - ./:/app
+      -  /app/node_modules  
+    environment:
+      - PORT=3000 
+    command: npm start 
+    depends_on:
+      - mongonode
+
+  mongonode:
+    image: mongo
+    restart: always
+    volumes:
+      - mongo:/data/db
+    ports:
+      - 27017:27017    
+
+volumes:
+  mongo:     
