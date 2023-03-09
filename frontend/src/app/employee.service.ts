@@ -3,21 +3,21 @@ import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class EmployeeService {
-  private baseUrl:string="http://localhost:3000/employee"
-  httpOptions:any;
+  private baseUrl: string = "http://localhost:3000/employee";
+  httpOptions: any;
 
-  constructor(private _httpCliend:HttpClient) { 
+  constructor(private _httpCliend: HttpClient) {
     this.httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + localStorage.getItem('token'),
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token"),
       }),
     };
   }
-  
+
   read(query?: any): Observable<any> {
     return this._httpCliend.get(this.baseUrl).pipe(
       tap({
@@ -33,7 +33,7 @@ export class EmployeeService {
 
   // Create API Resource
   create(data: any): Observable<any> {
-    return this._httpCliend.post(this.baseUrl, data,this.httpOptions).pipe(
+    return this._httpCliend.post(this.baseUrl, data, this.httpOptions).pipe(
       tap({
         next: (res) => {
           return res;
@@ -43,7 +43,6 @@ export class EmployeeService {
         },
       })
     );
-  
   }
 
   // Update API Resource
@@ -60,19 +59,19 @@ export class EmployeeService {
     );
   }
 
-   // Find Category by ID API Resource
- find(id: number, query?: any): Observable<any> {
-  return this._httpCliend.get(`${this.baseUrl}/${id}`).pipe(
-    tap({
-      next: (res) => {
-        return res;
-      },
-      error: (err) => {
-        return err;
-      },
-    })
-  ); 
-}
+  // Find Category by ID API Resource
+  find(id: number, query?: any): Observable<any> {
+    return this._httpCliend.get(`${this.baseUrl}/${id}`).pipe(
+      tap({
+        next: (res) => {
+          return res;
+        },
+        error: (err) => {
+          return err;
+        },
+      })
+    );
+  }
 
   // Find Category by ID API Resource
   delete(id: number): Observable<any> {
@@ -87,8 +86,8 @@ export class EmployeeService {
       })
     );
   }
-  
-  headerFilter: string = '';
+
+  headerFilter: string = "";
 
   public getFilter(): string {
     return this.headerFilter;

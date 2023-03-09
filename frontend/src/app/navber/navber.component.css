@@ -5,3 +5,12 @@
   #login{
     margin-left: 12px;
   }
+
+  #logo{
+    height: 40px;
+  }
+  a:hover {
+    background-color: #caced2;
+    color: white;
+    border-radius: 5px;
+  }

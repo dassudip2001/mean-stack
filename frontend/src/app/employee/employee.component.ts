@@ -1,62 +1,69 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
   FormGroup,
+  
   Validators,
-} from "@angular/forms";
-import * as moment from "moment";
-import { EmployeeService } from "../employee.service";
-import { Router } from "@angular/router";
+} from '@angular/forms';
+import * as moment from 'moment';
+import { EmployeeService } from '../employee.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: "app-employee",
-  templateUrl: "./employee.component.html",
-  styleUrls: ["./employee.component.css"],
+  selector: 'app-employee',
+  templateUrl: './employee.component.html',
+  styleUrls: ['./employee.component.css'],
 })
 export class EmployeeComponent implements OnInit {
+  
   constructor(
     public _employeeService: EmployeeService,
     private _fb: FormBuilder,
-    private router: Router
-  ) {}
-  theDateYouWant = new Date();
+    private router:Router
 
-  // date
-  selected: any;
-  dateChange(event: any) {
-    console.log(event);
-    this.selected = moment(new Date(event.target.value)).format("YYYY-MM-DD");
-    console.log(moment(new Date(event)).format("YYYY-MM-DD"));
+  ) {
+    
   }
+
   p: number = 1;
   collection: any[] = [];
-  btnAction: string = "";
+  btnAction: string = '';
   isLoading = true;
   isSubmit = false;
   isUpdate = false;
   alert = {
-    error: "",
-    success: "",
+    error: '',
+    success: '',
   };
 
   employeeForm = this._fb.group({
-    name: ["", Validators.required],
-    email: ["", Validators.required],
-    position: ["", Validators.required],
-    about: ["", Validators.required],
-    joining_data: ["", Validators.required],
-  });
+    name: ['', Validators.required],
+    email: ['', Validators.required],
+    position: ['', Validators.required],
+    about: ['', Validators.required],
+    joining_data: ['', Validators.required],
+
+  }); 
   empArray: any[] | object[] = [];
   categoryData = {};
   employeeId: number = 0;
   onSubmit() {
-    this.employeeForm.valid;
-    this.isSubmit = true;
-    if (this.btnAction === "Update")
+    if(!this.employeeForm.valid)
+    {
+        console.log(this.employeeForm);
+        
+    }else{
+        this.isSubmit = true;
+    if (this.btnAction === 'Update')
       this.updateEmployee(this.employeeId, this.employeeForm.value);
     else this.createEmployee(this.employeeForm.value);
+    }
+    
   }
+
+
+
 
   ngOnInit(): void {
     this.getAllEmployee();
@@ -68,10 +75,10 @@ export class EmployeeComponent implements OnInit {
       (res) => {
         this.isLoading = false;
         this.empArray = res;
-        if (localStorage.getItem("login") == "true") {
-          localStorage.setItem("login", "false");
-        } else {
-          localStorage.setItem("login", "true");
+        if(localStorage.getItem('login')=='true'){
+          localStorage.setItem('login','false');
+        }else{
+          localStorage.setItem('login','true');
           window.location.reload();
         }
         // console.log(res[0],"hello");
@@ -87,9 +94,9 @@ export class EmployeeComponent implements OnInit {
     this.btnAction = action;
     this._employeeService.find(id).subscribe(
       (res) => {
-        let date = moment(new Date(res.joining_data)).format("YYYY-MM-DD");
+        let date=moment(new Date(res.joining_data)).format("YYYY-MM-DD");
         console.log(date);
-
+        
         this.employeeId = id;
         this.employeeForm = new FormGroup({
           name: new FormControl(res.name),
@@ -97,6 +104,7 @@ export class EmployeeComponent implements OnInit {
           position: new FormControl(res.position),
           about: new FormControl(res.about),
           joining_data: new FormControl(date),
+
         });
         console.log(res);
       },
@@ -111,25 +119,23 @@ export class EmployeeComponent implements OnInit {
     );
   }
 
+
   createEmployee(data: any) {
-    data.joining_data = document.getElementById("joiningDate");
-    console.log(data, "Request data");
-    let token = localStorage.getItem("token");
-    if (token != null) {
+    let token =localStorage.getItem('token');
+    if(token!=null){
       this._employeeService.create(data).subscribe(
         (res) => {
-          if (this.employeeForm.valid) {
-            if (res.status == 204) {
-              this.router.navigate(["/login"]);
-            } else {
-              this.isSubmit = false;
-              this.getAllEmployee();
-              this.employeeForm.reset();
-              console.log(res);
-              this.alert.success = res;
-              setTimeout(function () {}, 2000);
-            }
-          }
+          if(res.status==204){
+            this.router.navigate(['/login'])
+          }else{
+          this.isSubmit = false;
+          this.getAllEmployee();
+          this.employeeForm.reset();
+          console.log(res);
+          this.alert.success = res;
+          setTimeout(function(){
+          }, 2000);
+        }
         },
         (err) => {
           if (err.status == 401) {
@@ -140,21 +146,21 @@ export class EmployeeComponent implements OnInit {
           }
         }
       );
-    } else {
-      this.router.navigate(["/login"]);
-    }
+    }else {
+        this.router.navigate(["/login"]);
+      }
   }
 
   updateEmployee(id: number, data: any) {
     console.log(id);
-
+    
     this._employeeService.update(id, data).subscribe(
       (res) => {
         this.isSubmit = false;
         this.employeeForm.reset();
         this.getAllEmployee();
         this.alert.success = res;
-        this.btnAction = "";
+        this.btnAction = '';
         // console.log(res);
       },
       (err) => {
@@ -169,9 +175,10 @@ export class EmployeeComponent implements OnInit {
   }
 
   deleteEmployee(id: number) {
-    this.employeeId = id;
+    this.employeeId=id;
     this._employeeService.delete(this.employeeId).subscribe(
       (res) => {
+        
         console.log(res);
         this.getAllEmployee();
       },
@@ -181,15 +188,20 @@ export class EmployeeComponent implements OnInit {
     );
   }
 
-  getEmployeeById(id: number) {
-    this.employeeId = id;
+  getEmployeeById(id:number){
+    this.employeeId=id;
     this._employeeService.find(this.employeeId).subscribe(
-      (res) => {
-        console.log(res);
+      (res)=>{
+       console.log(res);
+
       },
-      (err) => {
-        console.log(err);
+      (err)=>{
+         console.log(err);
+         
       }
     );
+
   }
+  
+  
 }

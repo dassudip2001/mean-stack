@@ -28,6 +28,7 @@
                   type="text"
                   class="form-control"
                   id="name"
+                
                   formControlName="name"
                   aria-describedby="emailHelp"
                   placeholder="Enter The Name"
@@ -83,7 +84,7 @@
                 />
               </div>
 
-              <button type="submit">submit</button>
+              <button type="submit" class="btn btn-primary">submit</button>
             </fieldset>
           </form>
         </div>
@@ -123,7 +124,7 @@
 
                 <td>{{ emp.position }}</td>
                 <td>{{ emp.about }}</td>
-                <td>{{ emp.joining_data }}</td>
+                <td>{{ emp.joining_data | date : "yyyy-MM-dd "}}</td>
 
                 <td>
                   <span class="d-flex">
