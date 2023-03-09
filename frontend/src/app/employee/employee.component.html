@@ -17,8 +17,12 @@
           >
             <fieldset>
               <div class="mb-3">
-                <label for="name" class="form-label" aria-required="true"
-                  >Name
+                <label
+                  for="name"
+                  class="form-label"
+                  aria-required="true"
+                  for="name"
+                  >Name<span class="required">*</span>
                 </label>
                 <input
                   type="text"
@@ -30,7 +34,9 @@
                 />
               </div>
               <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
+                <label for="email" class="form-label"
+                  >Email<span class="required">*</span></label
+                >
                 <input
                   type="email"
                   class="form-control"
@@ -40,7 +46,9 @@
                 />
               </div>
               <div class="mb-3">
-                <label for="position" class="form-label">Position</label>
+                <label for="position" class="form-label"
+                  >Position<span class="required">*</span></label
+                >
                 <input
                   type="text"
                   class="form-control"
@@ -50,7 +58,9 @@
                 />
               </div>
               <div class="mb-3">
-                <label for="about" class="form-label">About</label>
+                <label for="about" class="form-label"
+                  >About<span class="required">*</span></label
+                >
                 <textarea
                   class="form-control"
                   id="about"
@@ -61,7 +71,9 @@
               </div>
 
               <div class="mb-3">
-                <label for="position" class="form-label">Joining Date</label>
+                <label for="position" class="form-label"
+                  >Joining Date<span class="required">*</span></label
+                >
                 <br />
                 <input
                   type="date"
@@ -101,7 +113,7 @@
                 *ngFor="
                   let emp of empArray
                     | filter : _employeeService.getFilter()
-                    | paginate : { itemsPerPage: 5, currentPage: p };
+                    | paginate : { itemsPerPage: 6, currentPage: p };
                   let i = index
                 "
               >
@@ -138,4 +150,4 @@
     </div>
   </div>
 </div>
-<!-- <app-footer></app-footer> -->
+<app-footer></app-footer>

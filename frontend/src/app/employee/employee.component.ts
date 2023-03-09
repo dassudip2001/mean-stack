@@ -45,12 +45,13 @@ export class EmployeeComponent implements OnInit {
     email: ["", Validators.required],
     position: ["", Validators.required],
     about: ["", Validators.required],
-    joining_data: ['', Validators.required],
+    joining_data: ["", Validators.required],
   });
   empArray: any[] | object[] = [];
   categoryData = {};
   employeeId: number = 0;
   onSubmit() {
+    this.employeeForm.valid;
     this.isSubmit = true;
     if (this.btnAction === "Update")
       this.updateEmployee(this.employeeId, this.employeeForm.value);
@@ -117,15 +118,17 @@ export class EmployeeComponent implements OnInit {
     if (token != null) {
       this._employeeService.create(data).subscribe(
         (res) => {
-          if (res.status == 204) {
-            this.router.navigate(["/login"]);
-          } else {
-            this.isSubmit = false;
-            this.getAllEmployee();
-            this.employeeForm.reset();
-            console.log(res);
-            this.alert.success = res;
-            setTimeout(function () {}, 2000);
+          if (this.employeeForm.valid) {
+            if (res.status == 204) {
+              this.router.navigate(["/login"]);
+            } else {
+              this.isSubmit = false;
+              this.getAllEmployee();
+              this.employeeForm.reset();
+              console.log(res);
+              this.alert.success = res;
+              setTimeout(function () {}, 2000);
+            }
           }
         },
         (err) => {
@@ -137,6 +140,8 @@ export class EmployeeComponent implements OnInit {
           }
         }
       );
+    } else {
+      this.router.navigate(["/login"]);
     }
   }
 
