@@ -1,8 +1,5 @@
-FROM node:18-alpine3.15
-WORKDIR /app
-COPY *.json /app/ 
-RUN npm install -g @angular/cli@latest
-RUN npm install --force
-
-COPY . ./
-EXPOSE 4200
+# Stage 1, based on Nginx, to have only the compiled app, ready for production with Nginx
+FROM nginx:1.15
+COPY  /dist/front /usr/share/nginx/html
+# Copy the default nginx.conf provided by tiangolo/node-frontend
+COPY  /nginx.conf /etc/nginx/conf.d/default.conf

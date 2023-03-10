@@ -1,12 +1,12 @@
-import { HttpClient,HttpHeaders} from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable, tap } from "rxjs";
 
 @Injectable({
   providedIn: "root",
 })
 export class EmployeeService {
-  private baseUrl: string = "http://13.127.124.82:3000/employee";
+  private baseUrl: string = "http://localhost:3000/employee";
   httpOptions: any;
 
   constructor(private _httpCliend: HttpClient) {

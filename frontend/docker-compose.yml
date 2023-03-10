@@ -7,10 +7,4 @@ services:
       context: .
       dockerfile: ./Dockerfile
     ports:
-      - 4200:4200
-    volumes:
-      - ./:/app
-      - /app/node_modules
-    environment:
-      - PORT=4200
-    command: ng serve
+      - 9090:80
