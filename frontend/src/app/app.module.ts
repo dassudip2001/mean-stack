@@ -23,6 +23,8 @@ import { ServiceWorkerModule } from "@angular/service-worker";
 import { Ng2SearchPipeModule } from "ng2-search-filter";
 import { MatInputModule } from "@angular/material/input";
 import { MatNativeDateModule } from "@angular/material/core";
+import { FlexLayoutModule } from "@angular/flex-layout";
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -48,9 +50,11 @@ import { MatNativeDateModule } from "@angular/material/core";
     FormsModule,
     MatInputModule,
     MatDatepickerModule,
+    MatSidenavModule,
     NgxPaginationModule,
     Ng2SearchPipeModule,
     MatNativeDateModule,
+    FlexLayoutModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
