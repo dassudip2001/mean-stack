@@ -6,7 +6,7 @@ import { Observable, tap } from 'rxjs';
   providedIn: "root",
 })
 export class EmployeeService {
-  private baseUrl: string = "http://localhost:3000/employee";
+  private baseUrl: string = "http://13.127.94.197:3000/employee";
   httpOptions: any;
 
   constructor(private _httpCliend: HttpClient) {

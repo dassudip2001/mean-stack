@@ -6,8 +6,8 @@ import { Injectable } from "@angular/core";
   providedIn: "root",
 })
 export class AuthService {
-  private loginUrl: string = "http://localhost:3000/login";
-  private logOutUrl: string = "http://localhost:3000/logout";
+  private loginUrl: string = "http://13.127.94.197:3000/login";
+  private logOutUrl: string = "http://13.127.94.197:3000/logout";
 
   constructor(private _httpClient: HttpClient) {}
   // login
