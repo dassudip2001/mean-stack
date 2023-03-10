@@ -61,3 +61,4 @@ This repository is created for angular front end and express ja backend
  
  `![Screenshot from 2023-03-10 20-49-16](https://user-images.githubusercontent.com/85440350/224354602-a823cb97-5bab-4c89-a201-191a10d1edf6.png)
   
+![Screenshot from 2023-03-10 20-53-29](https://user-images.githubusercontent.com/85440350/224355295-d639857b-835d-4651-90ac-637e6262446e.png)\
