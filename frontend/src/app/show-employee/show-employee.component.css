@@ -58,3 +58,32 @@ mat-drawer {
   background-color: rgba(83, 83, 83, 0.178);
   cursor: pointer;
 }
+
+
+@media screen and (max-width: 414px) {
+  .example-card {
+    width: 381px;
+    margin: 0px 5px 5px 0px;
+  }
+}
+
+@media (min-width: 414px) {
+  .example-card {
+    width: 381px;
+    margin: 0px 5px 5px 0px;
+  }
+  
+}
+
+@media (max-width:414px) {
+  .example-card {
+    width: 381px;
+    margin: 0px 5px 5px 0px;
+  }
+}
+@media (min-width:540px) {
+  .example-card {
+    width: 381px;
+    margin: 0px 5px 5px 0px;
+  }
+}
