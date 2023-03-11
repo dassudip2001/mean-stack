@@ -1,6 +1,4 @@
-# express-angular
-This repository is created for angular front end and express ja backend
-# express-angular
+
 This repository is created for angular front end and express ja backend
 
 # express-angular
