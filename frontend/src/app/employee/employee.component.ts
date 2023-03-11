@@ -153,6 +153,10 @@ export class EmployeeComponent implements OnInit {
 
   updateEmployee(id: number, data: any) {
     console.log(id);
+    let token:any=localStorage.getItem('token');
+    if(token==undefined || token==null || token==""){
+      this.router.navigate(['/login']);
+    }
     
     this._employeeService.update(id, data).subscribe(
       (res) => {
@@ -175,6 +179,10 @@ export class EmployeeComponent implements OnInit {
   }
 
   deleteEmployee(id: number) {
+    let token:any=localStorage.getItem('token');
+    if(token==undefined || token==null || token==""){
+      this.router.navigate(['/login']);
+    }
     this.employeeId=id;
     this._employeeService.delete(this.employeeId).subscribe(
       (res) => {
