@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1678510423120,
+  "timestamp": 1678854237227,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -65,7 +65,7 @@
     {
       "name": "api-call",
       "patterns": [
-        "http:\\/\\/localhost:3000\\/[^/]*"
+        "http:\\/\\/http:\\/\\/15\\.206\\.70\\.254:3000\\/[^/]*"
       ],
       "strategy": "performance",
       "maxSize": 10,

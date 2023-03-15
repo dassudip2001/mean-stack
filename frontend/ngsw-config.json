@@ -29,7 +29,7 @@
   ],"dataGroups": [
     {
       "name": "api-call",
-      "urls": ["http://localhost:3000/*"],
+      "urls": ["http://http://15.206.70.254:3000/*"],
       "cacheConfig": {
         "maxAge": "12h",
         "maxSize": 10,
